@@ -66,8 +66,7 @@ Fill up rest of the fields. Meaning of each field are discussed below:
 ```
 python3 generate_string_session.py
 ```
-**NOTE:** You can limit the maximum concurrent downloads by changing the value of 'MAX_CONCURRENT_DOWNLOADS' in 'aria.sh'. By default, it's set to '3'.
-**NOTE:** You can limit the maximum download speed by changing the value of 'MAX_DOWNLOAD_SPEED' in 'aria.sh'. By default, it's set to '0' (unlimited).
+**NOTE:** You can limit the maximum concurrent downloads by changing the value of 'MAX_CONCURRENT_DOWNLOADS' in 'aria.sh'. By default, it's set to '3'. You can limit the maximum download speed by changing the value of 'MAX_DOWNLOAD_SPEED' in 'aria.sh'. By default, it's set to '0' (unlimited).
 
 ## Getting Google OAuth API Credential File
 
@@ -116,8 +115,8 @@ git clone https://github.com/username/your-private-repo
 cd your-private-repo
 rm -rfv .gitignore
 ```
-**NOTE:** Replace 'username' with your GitHub username and 'your-private-repo' with the name of your private repo.
-**NOTE:** Authenticate into GitHub, if prompted. If you have enabled 2FA in GitHub, you may not be able to authenticate. In that case, create a Personal Access Token, with 'repo-only' access, under Developer Settings in GitHub Settings and use it in the password field to authenticate in git.
+
+**NOTE:** Replace 'username' with your GitHub username and 'your-private-repo' with the name of your private repo. Authenticate into GitHub, if prompted. If you have enabled 2FA in GitHub, you may not be able to authenticate. In that case, create a Personal Access Token, with 'repo-only' access, under Developer Settings in GitHub Settings and use it in the password field to authenticate in git.
 - Commit and push the changes made to the remote GitHub repo:
 ```
 git add .
@@ -125,6 +124,7 @@ git commit -m "removed gitignore file"
 git push -f origin master
 ```
 - Now, set up the config file by following [this section](https://github.com/ksssomesh12/python-aria-mirror-bot#Cloning-and-Setting-Up-Config-File) and get the OAuth credential file by following [this section](https://github.com/ksssomesh12/python-aria-mirror-bot#Getting-Google-OAuth-API-Credential-File).
+
 **NOTE:** The cloned repo's visibility must be set to private, as this method requires the sensitive files (credentials.json, config.env, token.pickle, authorized_chats.txt, log.txt) containing personal data to be in the repo to be successfully deployed on Heroku; setting repo's visibility to 'public' might compromise personal data. Alternatively, you can set up a git repo on your local machine by cloning this repo and sync it with Heroku Git remote repo.
 
 ## Creating a Heroku App
@@ -158,6 +158,7 @@ You can run/terminate the app by allocating/deallocating dynos to the app.
 In the app dashboard, under resources tab, use the 'Edit dyno formation' button in Dynos section to change the working state of the app.
 
 - Using CLI:
+
 To Run:
 ```
 heroku ps:scale worker=1 --app your-mirror-bot
@@ -166,7 +167,7 @@ To Terminate:
 ```
 heroku ps:scale worker=0 --app your-mirror-bot
 ```
-Check Status:
+To Check Status:
 ```
 heroku ps --app your-mirror-bot
 ```
@@ -189,21 +190,21 @@ heroku ps --app your-mirror-bot
 
 # Using service accounts for uploading to avoid user rate limit
 For Service Account to work, you must set USE_SERVICE_ACCOUNTS="True" in config file or environment variables
-Many thanks to [AutoRClone](https://github.com/xyou365/AutoRclone) for the scripts
+Many thanks to [AutoRClone](https://github.com/xyou365/AutoRclone) for the scripts.
+
 **NOTE:** Using service accounts is only recommended while uploading to a team drive.
 
-## Generating service accounts
+## Generating Service Accounts
 Step 1. Generate service accounts [What is service account](https://cloud.google.com/iam/docs/service-accounts)
 ---------------------------------
 Let us create only the service accounts that we need.
+
 **Warning:** abuse of this feature is not the aim of this project and we do **NOT** recommend that you make a lot of projects, just one project and 100 sa allow you plenty of use, it is also possible that over abuse might get your projects banned by google.
 
+**NOTE:** 1 service account can copy around 750 GB/day. 1 project can make 100 service accounts so that's 75 TB/day, for most users this should easily suffice.
 ```
-Note: 1 service account can copy around 750gb a day, 1 project can make 100 service accounts so that's 75tb a day, for most users this should easily suffice.
+python3 gen_sa_accounts.py --quick-setup 1 --new-only
 ```
-
-`python3 gen_sa_accounts.py --quick-setup 1 --new-only`
-
 A folder named accounts will be created which will contain keys for the service accounts
 
 **NOTE:** If you have created SAs in past from this script, you can also just re-download the keys by running:
