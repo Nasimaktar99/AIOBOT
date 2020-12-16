@@ -96,7 +96,7 @@ sudo docker run mirror-bot
 
 # Deploy to Heroku
 
-<p align=""><a href="https://heroku.com/deploy?template=https://github.com/ksssomesh12/tg-mirror-bot/tree/master"> <img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt="Deploy to Heroku" /></a></p>
+<p align=""><a href="https://heroku.com/deploy?template=https://github.com/Dark-Matter7232/python-bot/tree/master"> <img src="https://camo.githubusercontent.com/83b0e95b38892b49184e07ad572c94c8038323fb/68747470733a2f2f7777772e6865726f6b7563646e2e636f6d2f6465706c6f792f627574746f6e2e737667" alt="Deploy to Heroku" /></a></p>
 
 # Deploy to Heroku Manually
 
