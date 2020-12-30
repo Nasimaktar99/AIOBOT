@@ -100,7 +100,7 @@ sudo docker run mirror-bot
 
 # Deploy to Heroku:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ksssomesh12/python-aria-mirror-bot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/mrmythpat/AIOBOT)
 
 # Deploy to Heroku Manually:
 
